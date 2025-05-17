@@ -82,6 +82,19 @@ awful.layout.layouts = {
 }
 -- }}}
 
+
+-- CPU and RAM widget
+local sys_widget = wibox.widget.textbox()
+awful.widget.watch(
+    [[sh -c "cpu=$(top -bn1 | grep 'Cpu(s)' | awk '{printf(\"%.1f\", 100 - $8)}'); mem=$(free -m | awk '/^Mem:/ {printf(\"%d/%dMB\", $3, $2)}'); echo \"CPU: ${cpu}%  RAM: ${mem}\""]],
+    10,
+    function(widget, stdout)
+        widget:set_text(stdout)
+    end,
+    sys_widget
+)
+
+
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
@@ -216,6 +229,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            sys_widget,
             mytextclock,
             s.mylayoutbox,
         },
