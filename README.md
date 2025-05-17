@@ -6,3 +6,7 @@ copy theme.lua to awesome directory
 ```bash
 sudo cp theme.lua ~/.config/awesome/
 ```
+dunst config 
+```bash
+sudo cp dunstrc ~/.config/dunst/
+```
