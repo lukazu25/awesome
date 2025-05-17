@@ -1,0 +1,9 @@
+[global]
+frame_color ="#d79921"
+separator_color = frame
+background = "#3c3836"
+foreground = "#fbf1c7"
+
+timeout = 2
+font = sans Bold  10
+markup = full
