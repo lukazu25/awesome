@@ -637,7 +637,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Autostart Apps
-awful.spawn.with_shell("xrandr --output Virtual-1 --mode 1920x1080")
+awful.spawn.with_shell("xrandr -s 1920x1080")
 awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("dunst")
